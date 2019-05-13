@@ -86,20 +86,6 @@ void map<T, G>::remove(T key)
 }
 
 template <typename T, typename G >
-G map<T, G>::find(T key)
-{
-	if (this->root == nullptr)
-	{
-		throw out_of_range("error");
-	}
-
-	auto it = create_bft_iterator();
-	for (; it != nullptr; it++)
-		if (it.current_key() == key) return *it;
-	throw out_of_range("error");
-}
-
-template <typename T, typename G >
 void map<T, G>::get_keys()
 {
 
