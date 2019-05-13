@@ -85,7 +85,29 @@ public:
 	};
 	
 	void remove(T);
-	G find(T);
+	node* find(T key) {
+		if (root != nullptr) {
+			node *it = root;
+			while (it != nullptr || it->key != key)
+			{
+				if (key > it->key) {
+					if (it->next_right != nullptr)
+						it = it->next_right;
+					else
+						return nullptr;
+				}
+				else if (it->key >= key) {
+					if (it->key == key)
+						return it;
+					if (it->next_left != nullptr)
+						it = it->next_left;
+					else
+						return nullptr;
+				}
+			}
+		}
+		return nullptr;
+	};
 
 	void get_keys();
 	void get_value();
